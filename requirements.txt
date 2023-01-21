@@ -1,0 +1,4 @@
+wandb==0.13.7
+torch==1.13.1
+pyparsing==3.0.9
+pyriemann==0.3
