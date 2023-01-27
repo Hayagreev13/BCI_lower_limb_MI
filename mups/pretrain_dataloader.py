@@ -1,18 +1,15 @@
 ''' Extracts Data from preprocessed pickle file based on subject requirement and loads them'''
 
-from torch.utils.data import Dataset    
+from torch.utils.data import Dataset 
+  
 import pandas as pd
 import numpy as np 
 import pickle
 import random
 
-pd.options.mode.chained_assignment = None  # default='warn
+import src.meta_utils as utils 
 
-def makeBigList(lst):
-    biglst = []
-    for item in lst :
-        biglst = biglst + [k for k in range((item-1)*10,item*10)]
-    return biglst
+pd.options.mode.chained_assignment = None  # default='warn
 
 def makeRandomValList(val,config, mode = None):
     random.seed(val)
@@ -29,7 +26,7 @@ def makeRandomValList(val,config, mode = None):
 def data_gen(train, val, test, config, mode = None):
     
     random.seed(test)
-    pre_path = "/content/drive/MyDrive/myMUPS/MIData_filtord2_freqlimits['1_100Hz']_ws500.pkl"
+    pre_path = "./preprocess/train/MIData_filtord2_freqlimits['1_100Hz']_ws500.pkl"
     a_file = open(pre_path, "rb")
     data_dict = pickle.load(a_file)
     X = data_dict['data']
@@ -42,7 +39,7 @@ def data_gen(train, val, test, config, mode = None):
     label = []
     if mode == 'train':
         for df in X:
-            if df in makeBigList(train)+val_list[0]:
+            if df in utils.makeBigList(train)+val_list[0]:
                 for segment in range(len(X[df])):
                     # only legs and relax
                     if y[df][segment] == 0 or y[df][segment] == 3: # label for relax is 0, and legs is 3

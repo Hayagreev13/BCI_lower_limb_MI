@@ -68,7 +68,7 @@ if current_mode == 'finetune':
     # final model is saved here
     if max > 0.68 :
         sub = utils.subName(config['test'][0])
-        save_path = f'./closedloop/models/{sub}/'
+        save_path = f'./models/{sub}/'
         torch.save(final_model_params, osp.join(save_path, f'{sub}_metamodel' + '.pth'))
         print('Model saved chico <3')
     else :

@@ -60,7 +60,7 @@ def meta_finetune(config=None, mode='finetune'):
           method = 'pretrain'
           str_value = config['chosen_val']
           sub = config['test'][0]
-          save_path = f'/content/drive/MyDrive/myMUPS/closedloop/models/X{sub}/{method}/'
+          save_path = f'./models/X{sub}/{method}/'
           pretrained_dict = torch.load(osp.join(save_path, f'X{sub}_max_acc_legs_pt_{str_value}' + '.pth'))['params']
           pretrained_dict = {'encoder.'+k: v for k, v in pretrained_dict.items()}
           pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
@@ -295,6 +295,7 @@ def meta_finetune(config=None, mode='finetune'):
           # print('Test Acc {:.4f} + {:.4f}'.format(m, pm))
           # print('Test f1 {:.4f} + {:.4f}'.format(f1_m, f1_pm))
           # print('Test auc {:.4f} + {:.4f}'.format(auc_m, auc_pm))
+          
           wandb.log({"test/test_acc": pre_model_accuracy,
                     "test/test_f1": f1_m,
                     "test/test_auc": auc_m})

@@ -30,7 +30,7 @@ def data_preprocessing(list_of_freq_lim, freq_limits_names_list, filt_orders, wi
     asr = False
     #folder_path = Path(f'./data/Subjects/{subject}/openloop')
     #env_noise_path = Path(f'./data/Subjects/{subject}/Envdata')
-    result_path = Path(f'./data/preprocess/')
+    result_path = Path(f'preprocess/test/')
     result_path.mkdir(exist_ok=True, parents=True)  
     dataset_full = {}
     trials_amount = 0
@@ -80,12 +80,6 @@ def data_preprocessing(list_of_freq_lim, freq_limits_names_list, filt_orders, wi
                 save_file.close()
                 print('Finished a preprocess pipeline.')
 
-def makeBigList(lst):
-    biglst = []
-    for item in lst :
-        biglst = biglst + [k for k in range((item-1)*10,item*10)]
-    return biglst
-
 def data_gen(subject_list, string, clstype, freq_limit):
 
     pre_path = Path(f'./data/preprocess/')
@@ -100,7 +94,7 @@ def data_gen(subject_list, string, clstype, freq_limit):
     data = []
     label = []
     for df in X:
-        if df in makeBigList(subject_list):
+        if df in utils.makeBigList(subject_list):
             for segment in range(len(X[df])):
                 if clstype == 'multiclass':
                     data.append(X[df][segment])

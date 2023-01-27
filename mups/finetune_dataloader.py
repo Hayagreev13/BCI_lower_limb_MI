@@ -17,7 +17,8 @@ def data_gen_test(test, config, mode = None):
     
     sub = utils.subName(test)
     print('Test subject:', sub)
-    pre_path = f"/content/drive/MyDrive/myMUPS/closedloop/data/{sub}_wet_filtord2_freqlimits['1_100Hz']_ws500.pkl"
+    #result_path = Path(f'./data/preprocess/')
+    pre_path = f"./preprocess/test/{sub}_wet_filtord2_freqlimits['1_100Hz']_ws500.pkl"
     # X0_wet_filtord2_freqlimits['1_100Hz']_ws500
     a_file = open(pre_path, "rb")
     data_dict = pickle.load(a_file)

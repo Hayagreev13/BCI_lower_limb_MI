@@ -13,7 +13,7 @@ def save_model(model,sub,method,str_value,mode):
           method : pretrained or finetuned
         """  
         sub = utils.subName(sub)
-        save_path = f'/content/drive/MyDrive/myMUPS/closedloop/models'
+        save_path = f'./models/'
         if not osp.exists(save_path):
             os.mkdir(save_path)
         save_path = osp.join(save_path, sub)

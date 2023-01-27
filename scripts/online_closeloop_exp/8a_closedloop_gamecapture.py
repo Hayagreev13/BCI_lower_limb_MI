@@ -37,7 +37,7 @@ def run_game(subject):
 
     # init DL model
     net = utils.FeatureExtractor()
-    path = Path(f'./models/{subject}_metamodel.pth')
+    path = Path(f'./models/{subject}/{subject}_metamodel.pth')
     pretrained_dict = torch.load(path)
     net.load_state_dict(pretrained_dict)
     net = net.float()
