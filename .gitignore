@@ -6,10 +6,6 @@ bin
 build
 closed_loop
 data
-docs
-figures
-outliers
 pretrain_models
-results
 tests
 __pycache__
