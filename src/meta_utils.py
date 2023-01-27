@@ -51,6 +51,12 @@ def ensure_path(path):
     else:
         os.mkdir(path)
 
+def makeBigList(lst):
+    biglst = []
+    for item in lst :
+        biglst = biglst + [k for k in range((item-1)*10,item*10)]
+    return biglst
+
 class Averager():
     def __init__(self):
         self.n = 0

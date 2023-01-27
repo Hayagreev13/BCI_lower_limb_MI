@@ -1,28 +1,16 @@
 import copy
-import glob
-import os
-import shutil
-import time
-import math
 from collections import Counter
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from joblib import dump, load
-from mne.decoding import CSP
-from pyriemann.classification import MDM, FgMDM
-from pyriemann.estimation import Covariances
-from pyriemann.tangentspace import TangentSpace
 from scipy import signal, stats
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-from sklearn.ensemble import RandomForestClassifier as RFC
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV, train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.svm import SVC
-from sklearn.metrics import f1_score, precision_score, recall_score, confusion_matrix, roc_auc_score
-from sklearn.preprocessing import OneHotEncoder
+
+
+def makeBigList(lst):
+    biglst = []
+    for item in lst :
+        biglst = biglst + [k for k in range((item-1)*10,item*10)]
+    return biglst
 
 def init_filters(freq_lim, sample_freq, filt_type = 'bandpass', order=2, state_space=True):
     filters = []
