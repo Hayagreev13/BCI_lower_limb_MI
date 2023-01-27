@@ -24,3 +24,4 @@ def save_model(model,sub,method,str_value,mode):
             os.mkdir(save_path) 
          
         torch.save(dict(params=model.encoder.state_dict()), osp.join(save_path, f'{str(sub)}_max_acc_legs_{mode}_{str_value}' + '.pth'))
+    

@@ -3,8 +3,7 @@ Code for loading data from csv file and preprocessing it with filters, cleaning 
 saving the data of 9 subjects in one pickle file
 End product after preprocessing is a pickle containing data_dict with data and labels 
 End shape of data is ~ 90x104x8x500
-End shape of labels is ~ 90x104 
-End product after data_gen is shuffled train and test data saved as a .mat file
+End shape of labels is ~ 90x104
 '''
 
 #from meegkit.asr import ASR
