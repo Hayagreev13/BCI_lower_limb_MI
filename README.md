@@ -34,10 +34,13 @@ Data analysis is performed to understand the data and different ML algorithms su
 The 'mups' folder contains the code related to Meta transfer learning for the final model.
 The final online experiments are done with the help of the scripts in 'online-closedloop exp'.
 
+This project was mainly done using google colab to utilise the power of GPUs. Hence, notebooks for all the scripts have also been provided to perform the same.
+
 Note that for above scripts, a data folder is needed, creating by running experiments or download data.
 Please check if the path is correct.
 
 Format of data obtained after data collection (.csv)
+
 ![Example data](/example_data.jpg "Example data")
 
 ## References
