@@ -4,12 +4,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import mne
 import pickle
-import scipy.io
-from scipy import signal
-from sklearn.model_selection import KFold, cross_validate
-import matplotlib.pyplot as plt
 import random
 
 import src.offline_utils as utils
@@ -104,12 +99,16 @@ def execution(pipeline_type, subject, classes):
         results_df.to_csv(result_path / results_fname)
     print('Finished')
 
-subjects = ['X0'+str(i) for i in range(1,10)]
-pipelines = ['csp','riemann']
-classes = [2,4]
-for subj in subjects:
-    print(subj)
-    for pline in pipelines:
-        print(pline)
-        for cls in classes:
-            execution(pline, subj, cls)
+def main():
+    subjects = ['X0'+str(i) for i in range(1,10)]
+    pipelines = ['csp','riemann']
+    classes = [2,4]
+    for subj in subjects:
+        print(subj)
+        for pline in pipelines:
+            print(pline)
+            for cls in classes:
+                execution(pline, subj, cls)
+
+if __name__ == '__main__':
+    main()
